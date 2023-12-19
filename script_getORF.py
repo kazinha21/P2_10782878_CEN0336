@@ -55,8 +55,8 @@ def maior_ORF(sequencia): #função que recebe uma sequência de DNA e retorna o
                 if len(seq) > len(big_sequence): #caso essa sequência seja maior que a anterior, atualizar os resultados
                     big_sequence = seq #armazenar a sequência
                     big_frame = frameId #armazenar o frame
-                    big_start = (i*3) - len(seq) +1 #o começo dessa ORF na sequência é o final da sequência menos o seu tamanho e mais um
-                    big_end = i*3 #o final da sequência é o número do códon vezes 3
+                    big_start = (i*3) - len(seq) + 1 + frame%3 #o começo dessa ORF na sequência é o final da sequência menos o seu tamanho e mais um
+                    big_end = (i*3) + frame%3 #o final da sequência é o número do códon vezes 3
                 seq = "" #recomeçar a sequência
             elif len(seq) > 0: #se estiver dentro de um ORF, adicionar o códon na sequência
                 seq +=codon 
